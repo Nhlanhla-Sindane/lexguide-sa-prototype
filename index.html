@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Rights Assistant - South Africa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #1a365d;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #4caf50;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #4caf50;
+        }
+        
+        /* Page Styles */
+        .page {
+            display: none;
+            min-height: calc(100vh - 120px);
+            padding: 40px 0;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* Landing Page */
+        .landing-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .landing-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #1a365d;
+        }
+        
+        .landing-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            background-color: #3d8b40;
+        }
+        
+        /* Input Page */
+        .input-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .input-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .input-header h2 {
+            color: #1a365d;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .input-header p {
+            color: #666;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+        
+        .disclaimer {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .disclaimer h3 {
+            color: #856404;
+            margin-bottom: 5px;
+        }
+        
+        .disclaimer p {
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .submit-button {
+            background-color: #1a365d;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .submit-button:hover {
+            background-color: #2d4a7c;
+        }
+        
+        /* Results Page */
+        .results-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .results-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .results-header h2 {
+            color: #1a365d;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .query-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1a365d;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .query-box h3 {
+            color: #1a365d;
+            margin-bottom: 5px;
+        }
+        
+        .response-box {
+            padding: 20px;
+            background-color: #f0f7ff;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .response-box h3 {
+            color: #1a365d;
+            margin-bottom: 10px;
+        }
+        
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .action-button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .action-button.secondary {
+            background-color: #6c757d;
+        }
+        
+        .action-button:hover {
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        footer p {
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .landing-content h1 {
+                font-size: 32px;
+            }
+            
+            .input-container, .results-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i>
+                Legal Rights Assistant
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('landing')">Home</a></li>
+                    <li><a href="#" onclick="showPage('input')">Legal Inquiry</a></li>
+                    <li><a href="#" onclick="showPage('results')">Results</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Landing Page -->
+        <div id="landing" class="page active">
+            <div class="landing-content">
+                <h1>Understand Your Rights in South Africa</h1>
+                <p>Our AI-powered legal assistant helps you navigate South African law with clear, accessible information about your rights and obligations. Get general guidance on common legal scenarios before consulting an attorney.</p>
+                <a href="#" class="cta-button" onclick="showPage('input')">Start Your Legal Inquiry</a>
+            </div>
+        </div>
+        
+        <!-- Input Page -->
+        <div id="input" class="page">
+            <div class="input-container">
+                <div class="input-header">
+                    <h2>Describe Your Legal Situation</h2>
+                    <p>Please provide details about your legal question or situation. Be as specific as possible for the most relevant information.</p>
+                </div>
+                
+                <textarea id="legalScenario" placeholder="Example: My landlord is refusing to return my security deposit after I moved out, even though I left the apartment in good condition. What are my rights as a tenant in South Africa?"></textarea>
+                
+                <div class="disclaimer">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Important Disclaimer</h3>
+                    <p>This tool provides general legal information, not legal advice. Always consult a qualified attorney for your specific situation.</p>
+                </div>
+                
+                <button class="submit-button" onclick="submitScenario()">Submit Your Inquiry</button>
+            </div>
+        </div>
+        
+        <!-- Results Page -->
+        <div id="results" class="page">
+            <div class="results-container">
+                <div class="results-header">
+                    <h2>Legal Information Response</h2>
+                    <p>Based on your query, here is some general legal information that may be helpful.</p>
+                </div>
+                
+                <div class="query-box">
+                    <h3>Your Query:</h3>
+                    <p id="userQuery">My landlord is refusing to return my security deposit after I moved out, even though I left the apartment in good condition. What are my rights as a tenant in South Africa?</p>
+                </div>
+                
+                <div class="response-box">
+                    <h3>General Legal Information:</h3>
+                    <div id="legalResponse">
+                        <p>In South Africa, tenant rights regarding security deposits are primarily governed by the Rental Housing Act and the Consumer Protection Act. Here are some key points:</p>
+                        
+                        <h4>Security Deposit Regulations:</h4>
+                        <ul>
+                            <li>Landlords can request a security deposit, typically not exceeding one or two months' rent.</li>
+                            <li>The deposit must be held in an interest-bearing account for the duration of the lease.</li>
+                            <li>Upon termination of the lease, the landlord must return the deposit with interest, minus any legitimate deductions.</li>
+                        </ul>
+                        
+                        <h4>Valid Deductions:</h4>
+                        <ul>
+                            <li>Unpaid rent or utilities</li>
+                            <li>Costs for repairing damage beyond normal wear and tear</li>
+                            <li>Cleaning costs if the property was not returned in a reasonably clean condition</li>
+                        </ul>
+                        
+                        <h4>Your Rights:</h4>
+                        <ul>
+                            <li>You have the right to receive an itemized list of deductions if any are made.</li>
+                            <li>The landlord must provide proof of costs for any repairs claimed.</li>
+                            <li>If no deductions are made, the deposit must be returned within 7-14 days after the lease ends.</li>
+                            <li>You can dispute unreasonable deductions through the Rental Housing Tribunal.</li>
+                        </ul>
+                        
+                        <p><strong>Note:</strong> This is general information. The specific details of your rental agreement and provincial regulations may affect your situation. Consult with a qualified attorney for advice tailored to your circumstances.</p>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button class="action-button" onclick="showPage('input')">New Inquiry</button>
+                    <button class="action-button secondary" onclick="showPage('landing')">Return to Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Legal Rights Assistant &copy; 2023 | This tool provides general legal information, not legal advice.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Function to show the selected page and hide others
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // If showing results page, update with the current query
+            if (pageId === 'results') {
+                const scenarioText = document.getElementById('legalScenario').value;
+                if (scenarioText) {
+                    document.getElementById('userQuery').textContent = scenarioText;
+                }
+            }
+        }
+        
+        // Function to handle scenario submission
+        function submitScenario() {
+            const scenarioText = document.getElementById('legalScenario').value;
+            
+            if (!scenarioText.trim()) {
+                alert('Please describe your legal situation before submitting.');
+                return;
+            }
+            
+            // In a real application, you would send this to your backend
+            // For this demo, we'll just show the results page
+            showPage('results');
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the landing page as active by default
+            showPage('landing');
+        });
+    </script>
+</body>
+</html>
